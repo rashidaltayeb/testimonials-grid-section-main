@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+:root {
+      --Moderate-violet: hsl(263, 55%, 52%);
+      --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+      --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+      --White: hsl(0, 0%, 100%);
+      --Light-gray: hsl(0, 0%, 81%);
+      --Light-grayish-blue: hsl(210, 46%, 95%);
+      --background: #EDF2F8;
+}
+
+.flex-container {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      Font-size: 13px;
+      height: 100vh;
+      display: flex;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--background);
+}
+
+.container {
+      display: grid;
+      grid-template-columns: 2fr 0.7fr;
+      grid-template-rows: 1fr;
+      gap: 0px 30px;
+      grid-template-areas:
+            "col-1 col-2";
+      width: 60%;
+      min-height: 50%;
+}
+
+.card {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.1fr 0.8fr *fr;
+      gap: 1em 0em;
+      grid-auto-flow: row;
+      grid-template-areas:
+            "card-header"
+            "card-title"
+            "card-paragraph";
+      border-radius: 10px;
+      padding: 2.5em;
+}
+
+.card-header {
+      display: grid;
+      grid-template-columns: 0.1fr 0.8fr;
+      grid-template-rows: 1fr;
+      gap: 0px 0.8em;
+      align-items: center;
+      grid-template-areas:
+            "img profile-info";
+      grid-area: card-header;
+}
+
+.img {
+      grid-area: img;
+}
+
+.img img {
+      border-radius: 50%;
+      height: 40px;
+}
+
+.profile-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1px 1px;
+      justify-self: start;
+      align-self: center;
+      grid-template-areas:
+            "name"
+            "Verified";
+      grid-area: profile-info;
+      color: var(--Light-gray);
+
+}
+
+.name {
+      grid-area: name;
+}
+
+.card h2 {
+      color: var(--Light-grayish-blue);
+}
+
+.Verified {
+      grid-area: Verified;
+      opacity: 50%;
+}
+
+.card-title {
+      grid-area: card-title;
+}
+
+.card-paragraph {
+      grid-area: card-paragraph;
+      color: var(--Light-grayish-blue);
+      opacity: 70%;
+}
+
+.col-1 {
+      grid-area: col-1;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 30px 0px;
+      grid-template-areas:
+            "row-1"
+            "row-2";
+}
+
+.row-1 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 30px;
+      grid-template-areas:
+            "card-1 card-2";
+      grid-area: row-1;
+}
+
+.card-1 {
+      grid-area: card-1;
+      background-color: var(--Moderate-violet);
+      background-image: url(/images/bg-pattern-quotation.svg);
+      background-repeat: no-repeat;
+      background-position-x: 25em;
+      background-size: 9.5em;
+}
+
+.card-1 img {
+      border: 2px solid var(--Light-gray);
+}
+
+.card-2 {
+      grid-area: card-2;
+      background-color: var(--Very-dark-grayish-blue);
+}
+
+.row-2 {
+      grid-area: row-2;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 1fr;
+      gap: 0px 30px;
+      grid-template-areas:
+            "card-3 card-4";
+}
+
+.card-3 {
+      grid-area: card-3;
+      background-color: var(--White);
+}
+
+.card-4 {
+      grid-area: card-4;
+      background-color: var(--Very-dark-blackish-blue);
+}
+
+.card-4 img {
+      border: 2px solid var(--Moderate-violet);
+}
+
+.col-2 {
+      grid-area: col-2;
+      background-color: var(--White);
+}
+
+.col-2 .card-paragraph p,
+.card-3 .card-paragraph p {
+      line-height: 1.8em;
+      color: var(--Very-dark-blackish-blue);
+      opacity: 70%;
+}
+
+.col-2 .card h2,
+.card-3 h2 {
+      color: var(--Very-dark-grayish-blue);
+}
+
+.col-2 .card .profile-info .name,
+.card-3 .profile-info .name {
+      color: var(--Very-dark-grayish-blue);
+}
+
+.col-2 .card .profile-info .Verified,
+.card-3 .profile-info .Verified {
+      color: var(--Very-dark-grayish-blue);
+}
+
+@media screen and (max-width:375px) {
+      .flex-container {
+            flex-direction: column;
+            padding: 5em 0.5em;
+            height: 0%;
+      }
+
+      .container {
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr 0.7fr;
+            gap: 30px 0px;
+            grid-template-areas:
+                  "col-1"
+                  "col-2";
+            width: 90%;
+      }
+
+      .col-1 {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:
+                  "row-1"
+                  "row-2";
+            gap: 30px 0px;
+      }
+
+      .row-1 {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1.2fr 0.7fr;
+            gap: 30px 0px;
+            grid-template-areas:
+                  "card-1"
+                  "card-2";
+      }
+
+      .card-1 {
+            background-position-x: 14em;
+            background-size: 9em;
+      }
+
+      .row-2 {
+            grid-template-columns: 1fr;
+            grid-template-rows: 0.7fr 1fr;
+            gap: 30px 0px;
+            grid-template-areas:
+                  "card-3"
+                  "card-4";
+      }
+}
